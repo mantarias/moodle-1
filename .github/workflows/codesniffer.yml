@@ -22,7 +22,7 @@ jobs:
 
 
     - name: select moodle code standart
-      run: ./moodle-local_codechecker/vendor/bin/phpcs --config-set default_standard ./moodle-local_codechecker/vendor/
+      run: ./moodle-local_codechecker/vendor/bin/phpcs --config-set default_standard ./moodle-local_codechecker/
 
 
     - name: run the codesniffer
