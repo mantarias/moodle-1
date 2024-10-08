@@ -25,7 +25,8 @@ jobs:
 
     # - name: select moodle code standart
     #   run: ./moodle-local_codechecker/vendor/bin/phpcs --config-set default_standard moodle
-
+    - name: debug
+      run: ls
 
     - name: run the codesniffer
-      run: ./moodle-local_codechecker/vendor/bin/phpcs ../../../server/moodle/mod/livequiz/
+      run: ./moodle-local_codechecker/vendor/bin/phpcs ../../../server/moodle/mod/livequiz/ 
