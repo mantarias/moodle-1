@@ -1,0 +1,22 @@
+name: codesniffer
+
+on:
+  push:
+    branches: [ "main", "staging" ]
+  pull_request:
+    branches: [ "main", "staging"  ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: get codesniffer with moodle standaRT
+      run: git clone https://github.com/moodlehq/moodle-local_codechecker.git
+
+
+    - name: run the codesniffer
+      run: ./moodle-local_codechecker/vendor/bin/phpcs ./server/moodle/mod/livequiz/
