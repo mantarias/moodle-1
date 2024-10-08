@@ -17,6 +17,13 @@ jobs:
     - name: get codesniffer with moodle standaRT
       run: git clone https://github.com/moodlehq/moodle-local_codechecker.git
 
+    - name: setup moodle code standart
+      run: ./moodle-local_codechecker/vendor/bin/phpcs --config-set installed_paths ./
+
+      
+    - name: select moodle code standart
+      run: ./moodle-local_codechecker/vendor/bin/phpcs --config-set default_standard moodle
+
 
     - name: run the codesniffer
       run: ./moodle-local_codechecker/vendor/bin/phpcs ./server/moodle/mod/livequiz/
