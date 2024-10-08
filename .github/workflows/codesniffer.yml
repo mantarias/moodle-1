@@ -26,6 +26,7 @@ jobs:
     # - name: select moodle code standart
     #   run: ./moodle-local_codechecker/vendor/bin/phpcs --config-set default_standard moodle
     - name: debug
+      working-directory: /moodle-local_codechecker/vendor/bin/phpcs
       run: ls
 
     - name: run the codesniffer
