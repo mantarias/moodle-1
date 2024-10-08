@@ -18,11 +18,11 @@ jobs:
       run: git clone https://github.com/moodlehq/moodle-local_codechecker.git
 
     - name: setup moodle code standart
-      run: ./moodle-local_codechecker/vendor/bin/phpcs --config-set installed_paths ./
+      run: ./moodle-local_codechecker/vendor/bin/phpcs --config-set installed_paths ./moodle-local_codechecker/vendor/bin/phpcs
 
-      
+
     - name: select moodle code standart
-      run: ./moodle-local_codechecker/vendor/bin/phpcs --config-set default_standard moodle
+      run: ./moodle-local_codechecker/vendor/bin/phpcs --config-set default_standard ./moodle-local_codechecker/vendor/
 
 
     - name: run the codesniffer
