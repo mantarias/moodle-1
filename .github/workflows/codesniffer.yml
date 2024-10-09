@@ -34,7 +34,7 @@ jobs:
 
 
     - name: set up composer
-      run: composer global config minimum-stability dev | composer global require moodlehq/moodle-cs
+      run:  composer global config minimum-stability dev |  composer global config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true |   composer global require moodlehq/moodle-cs
 
 
 
