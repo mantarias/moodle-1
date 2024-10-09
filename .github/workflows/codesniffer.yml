@@ -1,10 +1,13 @@
-name: codesniffer
 
+name: codesniffer
 on:
   push:
     branches: [ "main", "staging" ]
   pull_request:
     branches: [ "main", "staging"  ]
+
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -14,16 +17,35 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: get codesniffer with moodle standaRT
-      run: git clone https://github.com/moodlehq/moodle-local_codechecker.git
-    
-    # - name: setup moodle code standart
-    #   run: ./moodle-local_codechecker/vendor/bin/phpcs --config-set installed_paths  ./moodle-local_codechecker/vendor/moodlehq/moodle-cs , ./moodle-local_codechecker/vendor/phpcompatibility/php-compatibility , ./moodle-local_codechecker/vendor/phpcsstandards/phpcsextra , ./moodle-local_codechecker/vendor/phpcsstandards/phpcsutils
+    - name: Validate composer.json and composer.lock
+      run: composer validate --strict
+
+    # - name: Cache Composer packages
+    #   id: composer-cache
+    #   uses: actions/cache@v3
+    #   with:
+    #     path: vendor
+    #     key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+    #     restore-keys: |
+    #       ${{ runner.os }}-php-
+
+    # - name: Install dependencies
+    #   run: composer install --prefer-dist --no-progress
 
 
-    # - name: select moodle code standart
-    #   run: ./moodle-local_codechecker/vendor/bin/phpcs --config-set default_standard moodle
+    - name: set up composer
+      run: composer global config minimum-stability dev | composer global require moodlehq/moodle-cs
 
-    - name: run the codesniffer
-      working-directory: ./moodle-local_codechecker/vendor/bin/
-      run: ./phpcs ../../../server/moodle/mod/livequiz/ 
+
+
+    - name: run code sniffer
+      run: phpcs server/moodle/mod/livequiz/ 
+
+
+
+
+    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
+    # Docs: https://getcomposer.org/doc/articles/scripts.md
+
+    # - name: Run test suite
+    #   run: composer run-script test
