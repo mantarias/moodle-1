@@ -22,7 +22,10 @@ jobs:
         composer global config minimum-stability dev
         composer global config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
         composer global require moodlehq/moodle-cs
-        echo "::add-path::$(composer global config bin-dir --absolute)"
+
+    # Add Composer global bin to PATH
+    - name: Add Composer global bin to PATH
+      run: echo "PATH=$HOME/.composer/vendor/bin:$PATH" >> $GITHUB_ENV
 
     # Run PHP_CodeSniffer
     - name: Run Code Sniffer
