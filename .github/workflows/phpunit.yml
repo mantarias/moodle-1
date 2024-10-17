@@ -5,11 +5,6 @@ on:
     workflows: ["codesniffer"]
     types:
       - completed
-<!--   pull_request:
-    branches: [ "main", "staging" ]
-  push:
-    branches: [ "test-branch-2", "staging" ] -->
-
 jobs:
   build-test:
     runs-on: ubuntu-latest
