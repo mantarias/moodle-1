@@ -3,7 +3,7 @@ name: PHP UNIT
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: ['codesniffer']
+    workflows: ['codesniffer.yml']
     types: [completed]
 jobs:
   build-test:
