@@ -289,9 +289,7 @@ jobs:
         run: |
           pwd
           cd server/moodle
-          pwd
-          ls -l
-          vendor/bin/phpunit --configuration phpunit.xml --verbose
+          vendor/bin/phpunit ../moodledata/phpunit 
               
 
       
