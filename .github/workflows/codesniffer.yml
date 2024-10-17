@@ -274,9 +274,6 @@ jobs:
               --shortname="mtt" \
               --adminpass="hunter2"
 
-          find /home/runner/work/moodle-1-test-php/moodle-1-test-php/server/moodle/ -name config.php
-          echo "This is the path: $(realpath config.php)"
-
           if [ -f "$REPO_ROOT/server/moodle/config.php" ]; then
             echo "File $("$REPO_ROOT/server/moodle/config.php") exist."
           else
