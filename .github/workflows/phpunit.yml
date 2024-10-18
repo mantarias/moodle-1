@@ -275,7 +275,7 @@ jobs:
           pwd
           echo useless line
           cd server/moodle
-          vendor/bin/phpunit ../moodledata/phpunit
+          vendor/bin/phpunit ./mod/livequiz/tests
               
 
       
