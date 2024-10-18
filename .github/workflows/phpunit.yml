@@ -274,7 +274,7 @@ jobs:
         run: |
           pwd
           cd server/moodle
-          vendor/bin/phpunit ../moodledata/phpunit
+          vendor/bin/phpunit ./mod/livequiz/tests
               
 
       
