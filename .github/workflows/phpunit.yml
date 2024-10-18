@@ -1,10 +1,8 @@
 name: PHPUnit
 
 on:
-  workflow_run:
-    workflows: ["codesniffer"]
-    types:
-      - completed
+  pull_request:
+    branches: [ "main", "staging"  ]
 
 jobs:
   build-test:
@@ -276,7 +274,7 @@ jobs:
         run: |
           pwd
           cd server/moodle
-          vendor/bin/phpunit --configuration phpunit.xml
+          vendor/bin/phpunit ../moodledata/phpunit
               
 
       
