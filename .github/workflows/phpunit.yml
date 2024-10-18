@@ -273,6 +273,7 @@ jobs:
       - name: Run tests
         run: |
           pwd
+          echo useless line
           cd server/moodle
           vendor/bin/phpunit ../moodledata/phpunit
               
