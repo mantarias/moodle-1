@@ -1,9 +1,10 @@
 name: PHPUnit
 
 on:
-  workflow_run:
-    workflows: ['codesniffer']
-    types: [completed]
+  push:
+    branches: [ "main", "staging" ]
+  pull_request:
+    branches: [ "main", "staging"  ]
 
 jobs:
   build-test:
