@@ -38,6 +38,8 @@ $instance = $DB->get_record('livequiz', ['id' => $cm->instance], '*', MUST_EXIST
 $livequizservice = livequiz_services::get_singleton_service_instance();
 $currentquiz = $livequizservice->get_livequiz_instance($instance->id);
 
+
+
 if (!$cm) { // If course module is not set, throw an exception.
     throw new moodle_exception('invalidcoursemodule', 'error');
 }
@@ -45,9 +47,13 @@ if ($cm->course !== $course->id) { // Check if the course module matches the cou
     throw new moodle_exception('coursemismatch', 'error', '', null, 'The course module does not match the course');
 }
 
+
+
 require_login($course, false, $cm);
 $PAGE->set_cacheable(false);
 $PAGE->requires->css('/mod/livequiz/style.css'); // Adds styling to the page.
+
+
 
 // Suppress the activity description by overriding the module settings.
 $PAGE->set_context(context_module::instance($cmid));
