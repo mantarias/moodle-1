@@ -20,9 +20,9 @@
  * @copyright 2024 Software AAU
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
-require_once('../../config.php');
-require_once($CFG->libdir . '/accesslib.php');
+//removed for exam below
+// require_once('../../config.php');
+//require_once($CFG->libdir . '/accesslib.php');
 
 use mod_livequiz\output\take_livequiz_page;
 use mod_livequiz\services\livequiz_services;
@@ -71,16 +71,24 @@ $context = context_module::instance($cmid); // Get the context.
 
 $PAGE->set_context($context); // Make sure to set the page context.
 
+
+
 // Set up the page.
 $PAGE->set_url(new moodle_url('/mod/livequiz/attempt.php', ['cmid' => $cmid, 'questioniindex' => $questionindex]));
 $PAGE->set_title(get_string('modulename', 'mod_livequiz'));
 $PAGE->set_heading(get_string('modulename', 'mod_livequiz'));
 
+
+
 // Rendering.
 $output = $PAGE->get_renderer('mod_livequiz');
 $takelivequiz = new take_livequiz_page($cmid, $currentquiz, $questionindex, $USER->id);
+
+
 
 // Output.
 echo $OUTPUT->header();
 echo $output->render($takelivequiz); // Render the page.
 echo $OUTPUT->footer();
+
+
