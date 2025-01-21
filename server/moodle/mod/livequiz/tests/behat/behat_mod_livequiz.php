@@ -134,7 +134,6 @@ class behat_mod_livequiz extends behat_base {
         // Get the course ID.
         $course = $DB->get_record('course', ['shortname' => $coursename], '*', MUST_EXIST);
 
-
         // Get the module information (like 'livequiz').
         $module = $DB->get_record('modules', ['name' => $activityname], '*', MUST_EXIST);
 

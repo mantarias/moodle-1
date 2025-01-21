@@ -20,14 +20,16 @@
  * @copyright 2024 Software AAU
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-//removed for exam below
-// require_once('../../config.php');
-//require_once($CFG->libdir . '/accesslib.php');
+
+require_once('../../config.php');
+require_once($CFG->libdir . '/accesslib.php');
 
 use mod_livequiz\output\take_livequiz_page;
 use mod_livequiz\services\livequiz_services;
 
 global $PAGE, $OUTPUT, $USER;
+
+
 
 // Get submitted parameters.
 $cmid = required_param('cmid', PARAM_INT); // Course module id.
@@ -40,6 +42,8 @@ $currentquiz = $livequizservice->get_livequiz_instance($instance->id);
 
 
 
+
+
 if (!$cm) { // If course module is not set, throw an exception.
     throw new moodle_exception('invalidcoursemodule', 'error');
 }
@@ -49,9 +53,13 @@ if ($cm->course !== $course->id) { // Check if the course module matches the cou
 
 
 
+
+
 require_login($course, false, $cm);
 $PAGE->set_cacheable(false);
 $PAGE->requires->css('/mod/livequiz/style.css'); // Adds styling to the page.
+
+
 
 
 

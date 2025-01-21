@@ -112,7 +112,6 @@ class livequiz_services {
             }
             $this->submit_questions($livequiz, $lecturerid);
 
-
             $transaction->allow_commit();
         } catch (dml_exception $e) {
             $transaction->rollback($e);
