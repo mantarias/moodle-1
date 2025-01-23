@@ -104,5 +104,3 @@ $takelivequiz = new take_livequiz_page($cmid, $currentquiz, $questionindex, $USE
 echo $OUTPUT->header();
 echo $output->render($takelivequiz); // Render the page.
 echo $OUTPUT->footer();
-
-
