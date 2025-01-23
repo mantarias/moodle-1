@@ -253,7 +253,6 @@ final class livequiz_test extends advanced_testcase {
         $this->assertIsInt($data->quizid);
         $this->assertEquals($livequiz->get_id(), $data->quizid);
 
-
         // Verify correct quiztitle.
         $this->assertIsString($data->quiztitle);
         $this->assertEquals($livequiz->get_name(), $data->quiztitle);
@@ -340,7 +339,6 @@ final class livequiz_test extends advanced_testcase {
         assertEquals($questionwithid1->get_title(), $mockquestion1->get_title());
         assertEquals($questionwithid2->get_title(), $mockquestion2->get_title());
         assertEquals($questionwithid3->get_title(), $mockquestion3->get_title());
-
 
         // Test invalid case: No question with the given ID.
         $this->expectException(InvalidArgumentException::class); // Expect an InvalidArgumentExceptionException to be thrown.
